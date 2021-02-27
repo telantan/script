@@ -448,9 +448,9 @@ if { $para_inst && $len >= 0 } {
 	if { $para !="" } {
 	    if {$i != $len } {	
 	        if {$para_inst == 1} { 
-                    set str [ format "\t.%-[expr $para_max_width ]s( %-[expr $para_value_max_width ]s)," $para $values ]
+                    set str [ format "    .%-[expr $para_max_width ]s( %-[expr $para_value_max_width ]s)," $para $values ]
 		} else {
-                    set str [ format "\t.%-[expr $para_max_width ]s( %-[expr $para_max_width ]s)," $para $para ]
+                    set str [ format "    .%-[expr $para_max_width ]s( %-[expr $para_max_width ]s)," $para $para ]
 		}
 		puts $str
 		if { $of_arg !="" } {
@@ -458,15 +458,15 @@ if { $para_inst && $len >= 0 } {
 		}   
             } else {
 	        if {$para_inst == 1} { 
-                    set str [ format "\t.%-[expr $para_max_width ]s( %-[expr $para_value_max_width ]s) )" $para $values ]
+                    set str [ format "    .%-[expr $para_max_width ]s( %-[expr $para_value_max_width ]s) )" $para $values ]
 		} else {
-                    set str [ format "\t.%-[expr $para_max_width ]s( %-[expr $para_max_width ]s) )" $para $para ]
+                    set str [ format "    .%-[expr $para_max_width ]s( %-[expr $para_max_width ]s) )" $para $para ]
 		}
 		puts $str
-		puts "\t$inst_name \("
+		puts "    $inst_name \("
 		if { $of_arg !="" } {
 		   puts $ofile_id $str
-                   puts $ofile_id "\t$inst_name \("
+                   puts $ofile_id "    $inst_name \("
 		} 
 	    }
 	}
@@ -485,13 +485,13 @@ for {set i 0} {$i < [llength $port_list]} {incr i} {
     set port $port_items($i)
     set port_dir $port_dir_items($i)
     if { $i != $len } {
-        set str [ format "\t.%-[expr $port_max_width]s( %-[expr $port_max_width]s), //%s" $port $port $port_dir ]
+        set str [ format "    .%-[expr $port_max_width]s( %-[expr $port_max_width]s), //%s" $port $port $port_dir ]
 	puts $str
 	if { $of_arg !="" } {
             puts $ofile_id $str
 	} 
     } else {
-        set str [ format "\t.%-[expr $port_max_width]s( %-[expr $port_max_width]s)  //%s" $port $port $port_dir]
+        set str [ format "    .%-[expr $port_max_width]s( %-[expr $port_max_width]s)  //%s" $port $port $port_dir]
 	puts $str
         puts "\);"
 	if { $of_arg !="" } {
